@@ -16,13 +16,13 @@ This repository is the evidence base for that question.
 
 The ServiceNow Fluent SDK lets you build scoped applications in TypeScript and deploy them code-first. Project Moreau is a monorepo that accumulates these applications over time, creating a growing library of patterns, utility classes, and implementation conventions.
 
-The hypothesis behind Project Sybil was that feeding this existing codebase to a build agent as context, rather than starting from a blank specification, would produce meaningfully better output. Better code, not just more code.
+The hypothesis behind this test was that feeding this existing codebase to a build agent as context, rather than starting from a blank specification, would produce meaningfully better output.
 
 ---
 
 ## Experiment Design
 
-Two approaches. Same specification. Same instance. Timed and measured.
+Two approaches with the same specification on the same instance; timed and measured.
 
 **Approach A: Context-primed (project-moreau)**
 The build agent received the full project-moreau monorepo as context alongside the application specification. It could reference existing patterns, utility classes, and how previous applications had handled similar problems.
