@@ -1,4 +1,4 @@
-# Project Sybil
+# Project Moreau - a test
 
 A controlled benchmark comparing two approaches to AI-assisted ServiceNow application development.
 
