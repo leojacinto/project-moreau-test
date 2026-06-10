@@ -72,7 +72,7 @@ Every application artifact was queried directly from the instance via REST API a
 
 | | moreau_trv (project-moreau) | nrt (baseline) |
 |---|---|---|
-| Tables vs spec | 4 / 4 | 4 / 4 |
+| Tables vs spec | 4 of 4 | 4 of 4 |
 | Business rules vs spec | 4 of 7 | 4 of 7 |
 | Rules missing | Same 3 cross-record rules in both | Same 3 cross-record rules in both |
 | Logic reuse | Uses shared utility class | Duplicates logic inline |
@@ -87,13 +87,13 @@ The difference shows up in the code quality of what was built. The context-prime
 
 | | eqmdm (project-moreau) | nrm (baseline) |
 |---|---|---|
-| Tables vs spec | 6 / 6 | 6 / 6 |
-| Flows published | 3 of 4 with real step content | 0 of 4 — require manual completion |
+| Tables vs spec | 6 of 6 | 6 of 6 |
+| Flows published | 3 of 4 with real step content | 0 of 4 - require manual completion |
 | UI action wiring | FlowAPI with background execution | Field-based trigger with no handler |
 | Seed data | Requires separate population step | 13 records, all defects correct |
 | Noise artifacts | 2 test modules in parent scope | None |
 
-The table structures were correct in both. The gap opens in the automation layer.
+The table structures were correct in both. The gap widens in the automation layer.
 
 The context-primed build published three of four flows with full action content and wired the UI actions using `sn_fd.FlowAPI.getRunner().flow(name).inBackground()`, which is the correct async invocation pattern. Match and Dedupe was left incomplete, which is the only flow that would not run without manual intervention.
 
