@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.now/
+dist/
+node_modules/
+target/
+*.tsbuildinfo
+.jest_cache

@@ -1,0 +1,6 @@
+{
+  "scope": "x_snc_nrm",
+  "scopeId": "849756ec232a41d09984e70649705f37",
+  "name": "Equipment MDM Demo",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}

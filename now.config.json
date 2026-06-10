@@ -1,0 +1,6 @@
+{
+  "scope": "x_snc_moreau_test",
+  "scopeId": "d89e114d40ad4eb9b6e4b624657b5749",
+  "name": "moreau-test",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}

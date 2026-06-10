@@ -1,0 +1,6 @@
+{
+  "scope": "x_snc_eqmdm",
+  "scopeId": "64d0c472dce5440e87a4c92dac796d7b",
+  "name": "Equipment MDM",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}
