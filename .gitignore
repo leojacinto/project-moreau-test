@@ -1,4 +1,5 @@
 .env
+social-samples/
 .DS_Store
 .now/
 .playwright-mcp/

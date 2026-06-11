@@ -137,13 +137,13 @@ For the travel app, which exists in the monorepo, the context-primed build was c
 
 The context-primed MDM build produced correct flow automation and properly wired UI actions, which the baseline did not. But it also introduced build artifacts from adjacent workspace modules that need cleanup before a production deployment. The baseline produced better seed data completeness out of the box.
 
-**A practical implication for teams using this approach:**
+**The monorepo is a blunt context source.**
 
-Before running a context-primed build, check whether the monorepo contains a close structural match for the target application. If it does, the benefits are clear. If it does not, the value is still present in the automation layer but the deployment checklist should include a module-scoping review.
+It worked — but feeding a full codebase into every session is token-heavy, and model context windows lose usefulness past a point. The cleaner direction is distilled context: have an agent summarise your existing codebase into patterns, conventions, and reusable structures, then inject that as scoped instructions rather than the full repo. You get the same signal at a fraction of the cost. This experiment used the raw monorepo to establish that codebase context matters; the next question is how to deliver that context efficiently.
 
 **The cost case for context priming is stronger than expected.**
 
-The assumption going in was that injecting a large monorepo as context would increase token costs. The data shows the opposite: context-primed builds were cheaper for both apps. Better context appears to produce more focused output, which offsets the overhead of carrying the codebase in the session.
+The assumption going in was that injecting a large monorepo as context would increase token costs. The data shows the opposite: context-primed builds were cheaper for both apps. Better context appears to produce more focused output, which offsets the overhead of carrying the codebase in the session. With distilled context replacing the raw monorepo, the cost advantage should widen further.
 
 ---
 
