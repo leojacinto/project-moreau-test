@@ -14,7 +14,7 @@ This repository is the evidence base for that question.
 
 ## Background
 
-The ServiceNow Fluent SDK lets you build scoped applications in TypeScript and deploy them code-first. [Project Moreau](https://github.com/leojacinto/project-moreau) is a monorepo that accumulates these applications over time, creating a growing library of patterns, utility classes, and implementation conventions.
+The ServiceNow Fluent SDK lets you build scoped applications in TypeScript and deploy them code-first. [Project Moreau](https://github.com/leojacinto/project-moreau) is a monorepo that accumulates these applications over time, creating a growing library of patterns, utility classes, and implementation conventions. Note that given that the monorepo source has interal projects, it is made private. This repo still serves as reference on the experiment methodology and results.
 
 The hypothesis behind this test was that feeding this existing codebase to a build agent as context, rather than starting from a blank specification, would produce meaningfully better output.
 
