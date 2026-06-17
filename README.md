@@ -147,6 +147,57 @@ The assumption going in was that injecting a large monorepo as context would inc
 
 ---
 
+## Replicating This Experiment
+
+The build agent in both approaches was **Claude Code** running inside **Windsurf IDE**, with the **ServiceNow Fluent SDK** and the `now-sdk-explain` skill configured.
+
+### Prerequisites
+
+1. **Windsurf IDE** — download from [codeium.com/windsurf](https://codeium.com/windsurf). Claude Code runs as the active agent inside Windsurf.
+
+2. **Claude Code** — install the Claude Code extension from the Windsurf marketplace, or install the CLI directly:
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+3. **ServiceNow SDK** — install per project:
+   ```bash
+   npm install @servicenow/sdk
+   ```
+   Requires Node.js 18+. The SDK version used in this experiment was 4.7.2.
+
+4. **Fluent SDK skill (`now-sdk-explain`)** — add the `now-sdk-explain` skill to your Claude Code skills directory. This skill instructs the agent to consult SDK documentation via `npx @servicenow/sdk explain <topic>` before implementing any artifact. Without this, the agent will hallucinate API shapes instead of reading the actual SDK docs.
+
+   Skill install path: `~/.claude/skills/now-sdk-explain/`
+
+5. **Instance auth** — authenticate against your target ServiceNow instance:
+   ```bash
+   npx @servicenow/sdk auth --alias dev
+   ```
+   Verify with `npx now-sdk auth --list`.
+
+### Project Initialisation
+
+Each app folder was initialised with:
+```bash
+npx @servicenow/sdk create --scope x_snc_<scope> --name "<App Name>"
+```
+
+Build and deploy commands (defined in each project's `package.json`):
+```bash
+npm run build      # TypeScript compile — catches errors before deploy
+npm run deploy     # Deploy to instance under the configured auth alias
+```
+
+### Fluent File Conventions
+
+- All Fluent artifacts are `.now.ts` files under `src/fluent/`, organised by type (`tables/`, `flows/`, `acls/`, etc.)
+- Server-side scripts live in `src/server/` and are imported by `.now.ts` files — never inlined as strings
+- All artifacts are exported from `src/fluent/index.now.ts`
+- `src/fluent/generated/keys.ts` is SDK-managed — never edit manually
+
+---
+
 ## Repository Structure
 
 ```
